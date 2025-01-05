@@ -1,0 +1,90 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.default_container {
+    width: 30%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    border-radius: 5px;
+    background-color: rgb(242, 242, 242);
+    padding: 20px;
+    border: 2px rgb(105, 105, 105) solid;
+}
+
+.form {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border: 1px red solid;
+}
+
+.chose_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+    border: 1px red solid;
+}
+
+.chose_image button {
+    width: 70%;
+    font-family: "Roboto", serif;
+    border: none;
+    font-weight: 600;
+    color: white;
+    background-color: #3483fa;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.chose_image button:hover {
+    background-color: #1c60c6;
+}
+
+.chose_type_to_convert {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px red solid;
+}
+
+.container_options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    border: 1px red solid;
+}
+
+.form button {
+    width: 70%;
+    font-family: "Roboto", serif;
+    border: none;
+    font-weight: 600;
+    color: white;
+    background-color: #3483fa;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.form button:hover {
+    background-color: #1c60c6;
+}
