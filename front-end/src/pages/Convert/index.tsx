@@ -1,5 +1,7 @@
-import { Option } from './_components/Option';
 import style from './index.module.css';
+
+//Components
+import { Option } from './_components/Option';
 
 export function Convert() {
     return (
