@@ -1,6 +1,4 @@
 .footer {
-    position: absolute;
-    bottom: 0px;
     width: 100%;
     padding: 10px;
     display: flex;
@@ -38,8 +36,6 @@
 
 @media (max-width: 480px) {
     .footer {
-        position: absolute;
-        bottom: 0px;
         width: 100%;
         padding: 10px;
         display: flex;
