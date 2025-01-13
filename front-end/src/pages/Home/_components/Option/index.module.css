@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 .option {
-    width: 300px;
-    height: 450px;
+    width: 310px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,7 +11,7 @@
     border-radius: 5px;
     background-color: rgb(233, 233, 233);
     padding: 10px;
-    margin: 20px;
+    gap: 10px;
 }
 
 .option img {
@@ -23,8 +23,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-grow: 1;
+    gap: 10px;
+}
+
+.description h1 {
+    font-size: 1rem;
 }
 
 .description p {
@@ -46,4 +51,49 @@
 
 .description button:hover {
     background-color: #1c60c6;
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+
+    .description h1 {
+        font-size: 1rem;
+    }
+
+    .description p {
+        font-family: "Roboto", serif;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .option {
+        width: 310px;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border: 2px rgb(105, 105, 105) solid;
+        border-radius: 5px;
+        background-color: rgb(233, 233, 233);
+        padding: 3px;
+        gap: 10px;
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .description h1 {
+        font-size: 0.9rem;
+    }
+    
+    .description p {
+        font-family: "Roboto", serif;
+        font-size: 0.9rem;
+    }
 }

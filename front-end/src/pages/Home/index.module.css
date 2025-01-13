@@ -1,6 +1,13 @@
 .main {
-    height: 530px;
+    padding: 10px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 10px;
+}
+
+@media (max-width: 480px) {
+    .main {
+        padding: 5px;
+        display: flex;
+        gap: 5px;
+    }
 }

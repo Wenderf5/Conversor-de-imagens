@@ -2,6 +2,7 @@
 
 * {
   box-sizing: border-box;
+  margin: 0px;
 }
 
 *:focus {
@@ -9,7 +10,7 @@
 }
 
 body {
-  font-family: "Roboto", serif;
   margin: 0%;
   padding: 0%;
+  font-family: "Roboto", serif;
 }
