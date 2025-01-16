@@ -4,6 +4,7 @@ import { createBrowserRouter } from "react-router";
 import { App } from "../App";
 import { Home } from "../pages/Home";
 import { Convert } from "../pages/Convert";
+import { Resize } from "../pages/Resize";
 
 export const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
             {
                 path: '/convert',
                 element: <Convert />
+            },
+            {
+                path: '/resize',
+                element: <Resize />
             }
         ]
     }

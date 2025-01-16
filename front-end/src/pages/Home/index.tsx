@@ -18,11 +18,13 @@ export function Home() {
                     image={convert_option_img}
                     title='Converter'
                     label='Escolha o formato de saída para sua imagem. Converta facilmente entre diferentes tipos de arquivo, como JPG, PNG, SVG e outros.'
+                    to='/convert'
                 />
                 <Option
                     image={resize_option_img}
                     title='Redimensionar'
                     label='Reduza ou aumente o tamanho da imagem ajustando suas dimensões em pixels conforme necessário.'
+                    to='/resize'
                 />
             </main>
             <Footer />

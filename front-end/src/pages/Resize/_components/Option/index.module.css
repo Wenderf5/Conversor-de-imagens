@@ -1,0 +1,23 @@
+.option {
+    display: flex;
+}
+
+.btn_radio {
+    display: none;
+}
+
+.option input[type="radio"]+label {
+    display: inline-block;
+    padding: 3px 5px;
+    cursor: pointer;
+    background-color: #bdbdbd;
+    border-radius: 3px;
+    font-size: 16px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.option input[type="radio"]:checked+label {
+    background-color: #007BFF;
+    color: white;
+    border-color: #007BFF;
+}
