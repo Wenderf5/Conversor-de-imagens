@@ -1,5 +1,6 @@
 import style from './index.module.css';
 import { useEffect, useRef, useState } from 'react';
+import { Upload } from 'lucide-react';
 
 //Components
 import { Footer } from '../../components/Footer';
@@ -69,7 +70,7 @@ export function Convert() {
                         {imageError && (
                             <p className={style.image_error_msg}>Por favor selecione uma imagem!</p>
                         )}
-                        <label htmlFor="input-file" className={style.custon_input_file}>Selecionar</label>
+                        <label htmlFor="input-file" className={style.custon_input_file}> <Upload size={16}/>Selecionar</label>
                         <input
                             id="input-file"
                             type="file"

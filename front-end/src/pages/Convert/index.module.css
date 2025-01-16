@@ -29,6 +29,10 @@
 }
 
 .custon_input_file {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
     padding: 10px 30px;
     background-color: #3483fa;
     border-radius: 5px;
