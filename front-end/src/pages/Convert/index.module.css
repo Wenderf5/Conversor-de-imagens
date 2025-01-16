@@ -2,87 +2,90 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.default_container {
-    width: 30%;
-    height: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 20px;
-    border-radius: 5px;
-    background-color: rgb(242, 242, 242);
-    padding: 20px;
-    border: 2px rgb(105, 105, 105) solid;
+    flex-grow: 1;
 }
 
 .form {
-    
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    border: 2px rgb(105, 105, 105) solid;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.container_choose_image {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    border: 1px red solid;
+    text-align: center;
+    gap: 20px;
 }
 
-.chose_image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    gap: 15px;
-    border: 1px red solid;
-}
-
-.chose_image button {
-    width: 70%;
-    font-family: "Roboto", serif;
-    border: none;
+.custon_input_file {
+    padding: 10px 30px;
+    background-color: #3483fa;
+    border-radius: 5px;
     font-weight: 600;
     color: white;
-    background-color: #3483fa;
-    padding: 10px;
-    border-radius: 5px;
     cursor: pointer;
+    font-size: 0.85rem;
     transition: 200ms;
 }
 
-.chose_image button:hover {
+.custon_input_file:hover {
     background-color: #1c60c6;
 }
 
-.chose_type_to_convert {
-    width: 100%;
+.container_choose_image input[type="file"] {
+    display: none;
+}
+
+.container_choose_image p {
+    font-size: 0.7rem;
+}
+
+.image_error_msg {
+    color: red;
+    font-size: 0.7rem;
+}
+
+.container_choose_type {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border: 1px red solid;
+    gap: 20px;
 }
 
-.container_options {
+.container_types {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 5px;
-    border: 1px red solid;
 }
 
-.form button {
-    width: 70%;
-    font-family: "Roboto", serif;
-    border: none;
+.error_type {
+    color: red;
+    font-size: 0.7rem;
+}
+
+.input_submit {
+    padding: 10px 30px;
+    background-color: #3483fa;
+    border-radius: 5px;
     font-weight: 600;
     color: white;
-    background-color: #3483fa;
-    padding: 10px;
-    border-radius: 5px;
     cursor: pointer;
+    font-size: 0.85rem;
+    border: none;
     transition: 200ms;
 }
 
-.form button:hover {
+.input_submit:hover {
     background-color: #1c60c6;
 }

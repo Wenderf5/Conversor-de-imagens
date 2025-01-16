@@ -1,19 +1,23 @@
 import style from './index.module.css';
+import { Link } from 'react-router-dom';
 
 interface props {
     image: string,
     title: string,
-    label: string
+    label: string,
+    to: string
 }
 
-export function Option({ image, title, label }: props) {
+export function Option({ image, title, label, to }: props) {
     return (
         <div className={style.option}>
             <img src={image} alt="" />
             <div className={style.description}>
                 <h1>{title}</h1>
                 <p>{label}</p>
-                <button>Selecionar</button>
+                <Link to={to}>
+                    <button>Selecionar</button>
+                </Link>
             </div>
         </div>
     )
