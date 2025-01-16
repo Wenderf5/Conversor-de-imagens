@@ -24,7 +24,7 @@ export function Home() {
                     image={resize_option_img}
                     title='Redimensionar'
                     label='Reduza ou aumente o tamanho da imagem ajustando suas dimensões em pixels conforme necessário.'
-                    to='/'
+                    to='/resize'
                 />
             </main>
             <Footer />
