@@ -8,6 +8,8 @@ import { NavBar } from '../../components/NavBar';
 import { Option } from './_components/Option';
 
 export function Convert() {
+    const image_types = ["PNG", "JPG", "SVG", "WEBP", "ICO", "JPEG",
+        "HDR", "BMP", "GIF", "AVIF", "RGB", "TIFF", "PSD", "TGA"];
     const fileRef = useRef<HTMLInputElement | null>(null);
     const [imageError, setImageError] = useState(false);
     const [errorType, setErrorType] = useState(false);
@@ -70,7 +72,7 @@ export function Convert() {
                         {imageError && (
                             <p className={style.image_error_msg}>Por favor selecione uma imagem!</p>
                         )}
-                        <label htmlFor="input-file" className={style.custon_input_file}> <Upload size={16}/>Selecionar</label>
+                        <label htmlFor="input-file" className={style.custon_input_file}> <Upload size={16} />Selecionar</label>
                         <input
                             id="input-file"
                             type="file"
@@ -83,20 +85,9 @@ export function Convert() {
                             <p className={style.error_type}>Por favor selecione um tipo!</p>
                         )}
                         <div className={style.container_types}>
-                            <Option name='PNG' />
-                            <Option name='JPG' />
-                            <Option name='SVG' />
-                            <Option name='WEBP' />
-                            <Option name='ICO' />
-                            <Option name='JPEG' />
-                            <Option name='HDR' />
-                            <Option name='BMP' />
-                            <Option name='GIF' />
-                            <Option name='AVIF' />
-                            <Option name='RGB' />
-                            <Option name='TIFF' />
-                            <Option name='PSD' />
-                            <Option name='TGA' />
+                            {image_types.map((image_type, index) => (
+                                <Option key={index} name={image_type} />
+                            ))}
                         </div>
                     </div>
                     <input className={style.input_submit} type='submit' value={"Converter"} />
