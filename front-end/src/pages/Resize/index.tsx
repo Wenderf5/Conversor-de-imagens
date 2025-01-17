@@ -8,6 +8,10 @@ import { NavBar } from '../../components/NavBar';
 import { Option } from './_components/Option';
 
 export function Resize() {
+    const sizes = ["32x32", "48x48", "64x64", "128x128", "256x256",
+        "300x300", "400x400", "600x400", "800x600", "820x312", "1000x1500",
+        "1080x1080", "1080x1350", "1200x630", "1200x628", "1200x675", "1200x800",
+        "1584x396", "2048x2048"];
     const fileRef = useRef<HTMLInputElement | null>(null);
     const [imageError, setImageError] = useState(false);
     const [errorSize, setErrorSize] = useState(false);
@@ -71,7 +75,7 @@ export function Resize() {
                         {imageError && (
                             <p className={style.image_error_msg}>Por favor selecione uma imagem!</p>
                         )}
-                        <label htmlFor="input-file" className={style.custon_input_file}> <Upload size={16}/>Selecionar</label>
+                        <label htmlFor="input-file" className={style.custon_input_file}> <Upload size={16} />Selecionar</label>
                         <input
                             id="input-file"
                             type="file"
@@ -84,25 +88,9 @@ export function Resize() {
                             <p className={style.error_size}>Por favor selecione um tamanho!</p>
                         )}
                         <div className={style.container_size}>
-                            <Option size='32x32' />
-                            <Option size='48x48' />
-                            <Option size='64x64' />
-                            <Option size='128x128' />
-                            <Option size='256x256' />
-                            <Option size='300x300' />
-                            <Option size='400x400' />
-                            <Option size='600x400' />
-                            <Option size='800x600' />
-                            <Option size='820x312 ' />
-                            <Option size='1000x1500' />
-                            <Option size='1080x1080' />
-                            <Option size='1080x1350 ' />
-                            <Option size='1200x630' />
-                            <Option size='1200x628' />
-                            <Option size='1200x675' />
-                            <Option size='1200x800' />
-                            <Option size='1584x396' />
-                            <Option size='2048x2048' />
+                            {sizes.map((size, index) => (
+                                <Option key={index} size={size} />
+                            ))}
                         </div>
                     </div>
                     <input className={style.input_submit} type='submit' value={"Redimensionar"} />
