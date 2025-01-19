@@ -13,6 +13,7 @@ export function Resize() {
         "1080x1080", "1080x1350", "1200x630", "1200x628", "1200x675", "1200x800",
         "1584x396", "2048x2048"];
     const fileRef = useRef<HTMLInputElement | null>(null);
+    const fileRefww = useRef<HTMLFormElement | null>(null);
     const [imageError, setImageError] = useState(false);
     const [errorSize, setErrorSize] = useState(false);
     const [fileName, setFileName] = useState<string | undefined>(undefined);
@@ -48,9 +49,6 @@ export function Resize() {
             return;
         }
 
-        console.log(fileRef.current?.files?.[0].name);
-        console.log(e.currentTarget.resize_to.value);
-
         // const response = await fetch('URL', {
         //     headers: {
         //         'Content-Type': 'application/json'
@@ -61,12 +59,14 @@ export function Resize() {
         //         convert_to: e.currentTarget.convert_to.value
         //     })
         // });
+
+        console.log("Requsição enviada!");
     }
     return (
         <>
             <NavBar />
             <main className={style.main}>
-                <form onSubmit={handleSubmit} className={style.form}>
+                <form ref={fileRefww} onSubmit={handleSubmit} className={style.form}>
                     <div className={style.container_choose_image}>
                         <label>Selecione uma imagem do seu dispositivo para redimensionar</label>
                         {fileName && (
@@ -78,6 +78,7 @@ export function Resize() {
                         <label htmlFor="input-file" className={style.custon_input_file}> <Upload size={16} />Selecionar</label>
                         <input
                             id="input-file"
+                            name='image'
                             type="file"
                             ref={fileRef}
                         />
