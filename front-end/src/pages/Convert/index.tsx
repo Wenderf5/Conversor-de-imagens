@@ -1,5 +1,5 @@
 import style from './index.module.css';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Upload } from 'lucide-react';
 
 //Components
@@ -10,27 +10,19 @@ import { Option } from './_components/Option';
 export function Convert() {
     const image_types = ["PNG", "JPG", "SVG", "WEBP", "ICO", "JPEG",
         "HDR", "BMP", "GIF", "AVIF", "RGB", "TIFF", "PSD", "TGA"];
-    const fileRef = useRef<HTMLInputElement | null>(null);
     const [imageError, setImageError] = useState(false);
     const [errorType, setErrorType] = useState(false);
     const [fileName, setFileName] = useState<string | undefined>(undefined);
 
-    useEffect(() => {
-        function handleFileChange() {
-            setFileName(fileRef.current?.files?.[0].name);
-        };
-
-        fileRef.current?.addEventListener('change', handleFileChange);
-
-        return () => {
-            fileRef.current?.removeEventListener('change', handleFileChange);
-        };
-    }, []);
+    function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+        setFileName(e.currentTarget.files?.[0].name);
+    };
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        const form = e.currentTarget;
 
-        if (!fileRef.current?.files?.[0]) {
+        if (!form.image.files[0]) {
             setImageError(true);
             setTimeout(() => {
                 setImageError(false);
@@ -38,7 +30,7 @@ export function Convert() {
             return;
         }
 
-        if (!e.currentTarget.convert_to.value) {
+        if (!form.convert_to.value) {
             setErrorType(true);
             setTimeout(() => {
                 setErrorType(false);
@@ -46,16 +38,17 @@ export function Convert() {
             return;
         }
 
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
         // const response = await fetch('URL', {
         //     headers: {
         //         'Content-Type': 'application/json'
         //     },
         //     method: 'POST',
-        //     body: JSON.stringify({
-        //         image: fileRef.current?.files?.[0],
-        //         convert_to: e.currentTarget.convert_to.value
-        //     })
+        //     body: JSON.stringify(data)
         // });
+        // const responseData = response.json();
 
         console.log("Requisição enviada!");
     }
@@ -75,8 +68,9 @@ export function Convert() {
                         <label htmlFor="input-file" className={style.custon_input_file}><Upload size={16} />Selecionar</label>
                         <input
                             id="input-file"
+                            name='image'
                             type="file"
-                            ref={fileRef}
+                            onChange={handleFileChange}
                         />
                     </div>
                     <div className={style.container_choose_type}>

@@ -1,5 +1,5 @@
 import style from './index.module.css';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Upload } from 'lucide-react';
 
 //Components
@@ -12,28 +12,19 @@ export function Resize() {
         "300x300", "400x400", "600x400", "800x600", "820x312", "1000x1500",
         "1080x1080", "1080x1350", "1200x630", "1200x628", "1200x675", "1200x800",
         "1584x396", "2048x2048"];
-    const fileRef = useRef<HTMLInputElement | null>(null);
-    const fileRefww = useRef<HTMLFormElement | null>(null);
     const [imageError, setImageError] = useState(false);
     const [errorSize, setErrorSize] = useState(false);
     const [fileName, setFileName] = useState<string | undefined>(undefined);
 
-    useEffect(() => {
-        function handleFileChange() {
-            setFileName(fileRef.current?.files?.[0].name);
-        };
-
-        fileRef.current?.addEventListener('change', handleFileChange);
-
-        return () => {
-            fileRef.current?.removeEventListener('change', handleFileChange);
-        };
-    }, []);
+    function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+        setFileName(e.currentTarget.files?.[0].name);
+    };
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        const form = e.currentTarget;
 
-        if (!fileRef.current?.files?.[0]) {
+        if (!form.image.files[0]) {
             setImageError(true);
             setTimeout(() => {
                 setImageError(false);
@@ -41,7 +32,7 @@ export function Resize() {
             return;
         }
 
-        if (!e.currentTarget.resize_to.value) {
+        if (!form.resize_to.value) {
             setErrorSize(true);
             setTimeout(() => {
                 setErrorSize(false);
@@ -49,16 +40,17 @@ export function Resize() {
             return;
         }
 
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
         // const response = await fetch('URL', {
         //     headers: {
         //         'Content-Type': 'application/json'
         //     },
         //     method: 'POST',
-        //     body: JSON.stringify({
-        //         image: fileRef.current?.files?.[0],
-        //         convert_to: e.currentTarget.convert_to.value
-        //     })
+        //     body: JSON.stringify(data)
         // });
+        // const responseData = await response.json();
 
         console.log("Requsição enviada!");
     }
@@ -66,7 +58,7 @@ export function Resize() {
         <>
             <NavBar />
             <main className={style.main}>
-                <form ref={fileRefww} onSubmit={handleSubmit} className={style.form}>
+                <form onSubmit={handleSubmit} className={style.form}>
                     <div className={style.container_choose_image}>
                         <label>Selecione uma imagem do seu dispositivo para redimensionar</label>
                         {fileName && (
@@ -80,7 +72,7 @@ export function Resize() {
                             id="input-file"
                             name='image'
                             type="file"
-                            ref={fileRef}
+                            onChange={handleFileChange}
                         />
                     </div>
                     <div className={style.container_choose_size}>
